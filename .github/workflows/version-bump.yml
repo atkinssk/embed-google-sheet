@@ -54,7 +54,7 @@ jobs:
 
       - name: Create tag
         run: |
-          git tag -a "v${{ steps.new-version.outputs.version }}" -m "Release v${{ steps.new-version.outputs.version }}"
+          git tag -a "release-${{ steps.new-version.outputs.version }}" -m "Release ${{ steps.new-version.outputs.version }}"
 
       - name: Push changes and tag
         run: |
