@@ -1,6 +1,6 @@
 {
   "name": "embed-google-sheet",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/embed.js",
   "types": "dist/index.d.ts",
