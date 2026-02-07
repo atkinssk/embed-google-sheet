@@ -38,11 +38,18 @@ jobs:
         run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
 
       - name: Create Release
+        id: release
         uses: softprops/action-gh-release@v1
         with:
+          name: ${{ steps.version.outputs.version }}
           tag_name: ${{ steps.version.outputs.version }}
           files: dist/embed.js
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "Release id ${{ steps.release.outputs.id }}"
+          echo "Download URL ${{ fromJson(steps.release.outputs.assets)[0].browser_download_url }}"
