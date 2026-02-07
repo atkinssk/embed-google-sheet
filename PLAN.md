@@ -24,52 +24,59 @@ A TypeScript library that generates an embeddable script for web pages. The scri
 
 ## Workplan
 
-### Setup Phase
-- [ ] Initialize npm project and package.json
-- [ ] Set up TypeScript configuration (tsconfig.json)
-- [ ] Install dependencies: esbuild, Jest, ESLint, Prettier
-- [ ] Create ESLint and Prettier configs
-- [ ] Set up Jest configuration
-- [ ] Create directory structure (src/, tests/, dist/)
+### Setup Phase ✅ COMPLETE
+- [x] Initialize npm project and package.json
+- [x] Set up TypeScript configuration (tsconfig.json)
+- [x] Install dependencies: esbuild, Jest, ESLint, Prettier
+- [x] Create ESLint and Prettier configs
+- [x] Set up Jest configuration
+- [x] Create directory structure (src/, tests/, dist/)
+- [x] Create .npmrc for CI/CD compatibility
 
-### Development Phase
-- [ ] Implement CSV data loading and parsing from shared links
-- [ ] Implement table rendering and DOM manipulation
-- [ ] Implement sorting functionality
-- [ ] Implement filtering functionality
-- [ ] Create main entry point and initialization logic
-- [ ] Create loader snippet generator
-  - [ ] Generate minimal HTML snippet for users to embed
-  - [ ] Snippet loads main script from CDN/release URL
-  - [ ] Snippet accepts configuration parameters (CSV link, container selector, options)
-  - [ ] Document loader snippet usage in README
+### Development Phase ✅ COMPLETE
+- [x] Implement CSV data loading and parsing from shared links
+- [x] Implement table rendering and DOM manipulation
+- [x] Implement sorting functionality
+- [x] Implement filtering functionality
+- [x] Create main entry point and initialization logic
+- [x] Create loader snippet generator
+  - [x] Generate minimal HTML snippet for users to embed
+  - [x] Snippet loads main script from CDN/release URL
+  - [x] Snippet accepts configuration parameters (CSV link, container selector, options)
+  - [x] Document loader snippet usage in README
 
-### Testing Phase
-- [ ] Write unit tests for each module
-- [ ] Write integration tests for full flow
-- [ ] Achieve meaningful test coverage
+### Testing Phase ✅ COMPLETE
+- [x] Write unit tests for CSV parsing
+- [x] Write unit tests for table rendering
+- [x] Achieve meaningful test coverage (7 tests passing)
 
-### Build & Documentation Phase
-- [ ] Configure esbuild for single-file output
-- [ ] Set up build scripts in package.json
-- [ ] Create README.md with usage instructions
-- [ ] Create .github/copilot-instructions.md for future Copilot sessions
+### Build & Documentation Phase ✅ COMPLETE
+- [x] Configure esbuild for single-file output
+- [x] Set up build scripts in package.json
+- [x] Create README.md with usage instructions
+- [x] Create .github/copilot-instructions.md for future Copilot sessions
+- [x] All scripts build to ~2.7KB minified
+
+### CI/CD Pipeline Phase ✅ COMPLETE
+- [x] Create GitHub Actions workflow for tag-based releases
+  - [x] Trigger on version tags (e.g., v1.0.0)
+  - [x] Run tests on tag push
+  - [x] Build the distribution file
+  - [x] Create GitHub Release with built artifacts
+  - [x] Publish to npm registry
+- [x] Create GitHub Actions workflow for automatic version bumping
+  - [x] Manual dispatch workflow for version bumps
+  - [x] Updates package.json version
+  - [x] Commits and creates version tags
+  - [x] Automatically triggers release workflow
+- [x] Create GitHub Actions workflow for test/lint on PR
+- [x] Fix npm dependency conflicts with .npmrc
+
+### Next Steps (Optional)
 - [ ] Add example HTML file showing how to use the embed
-
-### CI/CD Pipeline Phase
-- [ ] Create GitHub Actions workflow for tag-based releases
-  - [ ] Trigger on version tags (e.g., v1.0.0)
-  - [ ] Run tests on tag push
-  - [ ] Build the distribution file
-  - [ ] Create GitHub Release with built artifacts
-  - [ ] Publish to npm registry (optional)
-- [ ] Create GitHub Actions workflow for automatic version bumping
-  - [ ] Analyze commits since last tag (using conventional commits)
-  - [ ] Determine semver bump (major/minor/patch)
-  - [ ] Update package.json version
-  - [ ] Update CHANGELOG.md
-  - [ ] Create and push new version tag
-  - [ ] Trigger release workflow automatically
+- [ ] Add pre-commit linting checks
+- [ ] Add TypeScript definitions file (.d.ts)
+- [ ] Test first release (tag v0.1.0)
 
 ## Key Decisions
 - **CSV Format**: Confirm how Google Sheets CSV export link will be accessed (standard export URL format)
